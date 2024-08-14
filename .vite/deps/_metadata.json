@@ -1,0 +1,29 @@
+{
+  "hash": "577a989f",
+  "browserHash": "a55606f7",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "549bbdea",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f1b8cef0",
+      "needsInterop": true
+    },
+    "@react-three/fiber": {
+      "src": "../../node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+      "file": "@react-three_fiber.js",
+      "fileHash": "7b474fd4",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-5VW2NNEB": {
+      "file": "chunk-5VW2NNEB.js"
+    }
+  }
+}
