@@ -33,6 +33,7 @@ module.exports = {
           "attach",
           "object",
           "skeleton",
+          "map"
         ],
       },
     ],
