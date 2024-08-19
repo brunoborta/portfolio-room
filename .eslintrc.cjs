@@ -21,7 +21,7 @@ module.exports = {
     "react/no-unknown-property": [
       1,
       {
-        // r3f tags attributes are ignored
+        // r3f tags/attributes are ignored
         ignore: [
           "position",
           "rotation",
@@ -33,7 +33,9 @@ module.exports = {
           "attach",
           "object",
           "skeleton",
-          "map"
+          "map",
+          "receiveShadow",
+          "castShadow",
         ],
       },
     ],
