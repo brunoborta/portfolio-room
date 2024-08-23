@@ -11,4 +11,4 @@ Currently, two official plugins are available:
 
 
 ## Utils
-npx gltfjsx@6.5.0 .\public\models\bike.glb -o .\src\components\bike.jsx -r public -k --shadows
+npx gltfjsx@6.5.0 .\public\models\Clock.gltf -o .\src\components\models\Clock.jsx -r public -k --shadows
