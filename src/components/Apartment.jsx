@@ -6,11 +6,11 @@ import { Purifier } from "./models/Purifier";
 import { Room } from "./models/Room";
 import { Table } from "./models/Table";
 import { Trash } from "./models/Trash";
-import { Tree } from "./models/Tree";
+import { Player } from "./models/Player";
 
 function Apartment() {
     return (
-        <>
+        <group>
             <Room />
             <Chair />
             <Clock />
@@ -19,8 +19,8 @@ function Apartment() {
             <Purifier />
             <Table />
             <Trash />
-            <Tree />
-        </>
+            <Player />
+        </group>
     );
 }
 

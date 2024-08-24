@@ -36,6 +36,7 @@ module.exports = {
           "map",
           "receiveShadow",
           "castShadow",
+          "transparent",
         ],
       },
     ],

@@ -1,21 +1,18 @@
 import { OrbitControls, Sky } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
 import Apartment from "./Apartment";
 import Lights from "./Lights";
-import { Suspense } from "react";
+import { Perf } from "r3f-perf";
+import { useControls } from "leva";
 
 export default function Experience() {
+
+  const { perfVisible } = useControls({
+    perfVisible: { value: false, label: 'Show Performance' }
+  });
   
   return (
-    <Canvas
-      camera={{
-        fov: 45,
-        near: 0.1,
-        far: 200,
-        position: [0, 20, 20],
-      }}
-      shadows
-    >
+    <>
+       {perfVisible && <Perf position="top-left" />}
       <Lights />
       <OrbitControls
         // enableDamping={true}
@@ -29,10 +26,7 @@ export default function Experience() {
       <Sky />
       <gridHelper args={[20, 20, 0xff0000, 'teal']} />
       <axesHelper  />
-      <Suspense fallback={null}>
-        <Apartment />
-      </Suspense>
-
-    </Canvas>
+      <Apartment />
+    </>
   );
 }
