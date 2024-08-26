@@ -1,8 +1,10 @@
-import { OrbitControls, Sky } from "@react-three/drei";
-import Apartment from "./Apartment";
-import Lights from "./Lights";
+import { Sky } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useControls } from "leva";
+
+import Camera from './Camera';
+import Apartment from "./Apartment";
+import Lights from "./Lights";
 
 export default function Experience() {
 
@@ -14,15 +16,7 @@ export default function Experience() {
     <>
        {perfVisible && <Perf position="top-left" />}
       <Lights />
-      <OrbitControls
-        // enableDamping={true}
-        // dampingFactor={0.1}
-        // minPolarAngle={Math.PI * 0.2}
-        // maxPolarAngle={Math.PI * 0.4}
-        // minAzimuthAngle={-Math.PI * 0.1}
-        // maxAzimuthAngle={0.2}
-        // enablePan={false}
-      />
+      <Camera />
       <Sky />
       <gridHelper args={[20, 20, 0xff0000, 'teal']} />
       <axesHelper  />
