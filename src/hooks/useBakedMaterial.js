@@ -1,6 +1,6 @@
 import { useTexture } from "@react-three/drei";
 import { useMemo } from "react";
-import * as THREE from 'three';
+import * as THREE from "three";
 
 export const useBakedMaterial = (path) => {
   const texture = useTexture(path);
@@ -11,4 +11,4 @@ export const useBakedMaterial = (path) => {
       map: texture,
     });
   }, [texture]);
-} 
+};

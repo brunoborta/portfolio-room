@@ -9,19 +9,19 @@ import { Trash } from "./models/Trash";
 import { Player } from "./models/Player";
 
 function Apartment() {
-    return (
-        <group>
-            <Room />
-            <Chair />
-            <Clock />
-            <Bike />
-            <Drawer />
-            <Purifier />
-            <Table />
-            <Trash />
-            <Player />
-        </group>
-    );
+  return (
+    <group>
+      <Room />
+      <Chair />
+      <Clock />
+      <Bike />
+      <Drawer />
+      <Purifier />
+      <Table />
+      <Trash />
+      <Player />
+    </group>
+  );
 }
 
 export default Apartment;
