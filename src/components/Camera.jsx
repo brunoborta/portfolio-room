@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useControls } from "leva";
+import { useControls, folder } from "leva";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 
@@ -7,7 +7,6 @@ export default function Camera() {
   const cameraRef = useRef();
   const { set } = useThree();
 
-  // Configuração do Leva
   const {
     positionX,
     positionY,
@@ -18,16 +17,21 @@ export default function Camera() {
     targetX,
     targetY,
     targetZ,
-  } = useControls("Perspective Camera", {
-    positionX: { value: 0.5, min: -10, max: 100, step: 0.1 },
-    positionY: { value: 9, min: -10, max: 100, step: 0.1 },
-    positionZ: { value: 18, min: 0, max: 100, step: 0.1 },
-    fov: { value: 45, min: 10, max: 120, step: 1 },
-    near: { value: 0.1, min: 0.1, max: 1000, step: 0.1 },
-    far: { value: 40, min: 1, max: 1000, step: 1 },
-    targetX: { value: -0.5, min: -10, max: 30, step: 0.1 },
-    targetY: { value: 3, min: -10, max: 30, step: 0.1 },
-    targetZ: { value: -2.5, min: -10, max: 30, step: 0.1 },
+  } = useControls({
+    "Perspective Camera": folder(
+      {
+        positionX: { value: 0.5, min: -10, max: 100, step: 0.1 },
+        positionY: { value: 9, min: -10, max: 100, step: 0.1 },
+        positionZ: { value: 18, min: 0, max: 100, step: 0.1 },
+        fov: { value: 45, min: 10, max: 120, step: 1 },
+        near: { value: 0.1, min: 0.1, max: 1000, step: 0.1 },
+        far: { value: 40, min: 1, max: 1000, step: 1 },
+        targetX: { value: -0.5, min: -10, max: 30, step: 0.1 },
+        targetY: { value: 3, min: -10, max: 30, step: 0.1 },
+        targetZ: { value: -2.5, min: -10, max: 30, step: 0.1 },
+      },
+      { collapsed: true }
+    ),
   });
 
   // Update the camera used by the scene with this camera
