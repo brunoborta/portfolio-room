@@ -1,29 +1,10 @@
+import { Environment } from "@react-three/drei";
 import { folder, useControls } from "leva";
 import { useRef } from "react";
 
 function Lights() {
   const directionalRef = useRef();
-  const ambientRef = useRef();
-  useControls("Lights", {
-    "Ambient Light": folder(
-      {
-        Visible: {
-          value: true,
-          onChange: (v) => {
-            ambientRef.current.visible = v;
-          },
-        },
-        Intensity: {
-          value: 1,
-          min: 0,
-          max: 10,
-          onChange: (v) => {
-            ambientRef.current.intensity = v;
-          },
-        },
-      },
-      { collapsed: true }
-    ),
+  useControls({
     "Directional Light": folder(
       {
         visible: {
@@ -60,7 +41,7 @@ function Lights() {
   });
   return (
     <>
-      <ambientLight ref={ambientRef} intensity={2} />
+      <Environment preset="apartment" />
       <directionalLight
         ref={directionalRef}
         position={[-1.1, -0.2, 4.7]}

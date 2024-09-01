@@ -23,7 +23,7 @@ export default function Camera() {
         positionX: { value: 0.5, min: -10, max: 100, step: 0.1 },
         positionY: { value: 9, min: -10, max: 100, step: 0.1 },
         positionZ: { value: 18, min: 0, max: 100, step: 0.1 },
-        fov: { value: 45, min: 10, max: 120, step: 1 },
+        fov: { value: 50, min: 10, max: 120, step: 1 },
         near: { value: 0.1, min: 0.1, max: 1000, step: 0.1 },
         far: { value: 40, min: 1, max: 1000, step: 1 },
         targetX: { value: -0.5, min: -10, max: 30, step: 0.1 },
@@ -69,11 +69,11 @@ export default function Camera() {
         shadows
         ref={cameraRef}
         position={[0.5, 9, 18]}
-        fov={45}
+        fov={50}
         near={0.1}
         far={40}
       />
-      <OrbitControls target={[-0.5, 3, -2.5]} />
+      {/* <OrbitControls target={[-0.5, 3, -2.5]} /> */}
     </>
   );
 }

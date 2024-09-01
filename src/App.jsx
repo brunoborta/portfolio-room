@@ -1,10 +1,16 @@
-import GlobalStyle from "./globalStyles";
-import Experience from "./components/Experience";
+import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Leva } from "leva";
-import { useEffect, useState } from "react";
-import AudioPlayer from "./components/AudioPlayer";
+import Experience from "./components/Experience";
+import AudioPlayer from "./components/UI/AudioPlayer";
+import Interface from "./components/UI/Interface";
+
 import { useMouseRotation } from "./hooks/useMouseRotation";
+
+import GlobalStyle from "./globalStyles";
+import { Scroll, ScrollControls } from "@react-three/drei";
+
+import config from "./utils/config";
 
 function App() {
   const [hideDebug, setHideDebug] = useState(true);
@@ -20,6 +26,7 @@ function App() {
     <>
       <Leva hidden={hideDebug} />
       <AudioPlayer />
+      <GlobalStyle />
       <Canvas
         camera={{
           fov: 45,
@@ -27,11 +34,21 @@ function App() {
           far: 200,
           position: [0, 20, 20],
         }}
+        dpr={[1, 1.5]}
         shadows
         onPointerMove={handlePointerMove}
       >
-        <GlobalStyle />
-        <Experience />
+        <Suspense fallback={null}>
+          <Experience />
+          <ScrollControls
+            damping={config.sections.length + 1}
+            pages={config.sections.length}
+          >
+            <Scroll html>
+              <Interface />
+            </Scroll>
+          </ScrollControls>
+        </Suspense>
       </Canvas>
     </>
   );

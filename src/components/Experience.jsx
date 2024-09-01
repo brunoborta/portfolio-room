@@ -1,4 +1,4 @@
-import { Sky } from "@react-three/drei";
+import { Environment, Sky } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useControls } from "leva";
 
@@ -14,11 +14,10 @@ export default function Experience() {
   return (
     <>
       {perfVisible && <Perf position="top-left" />}
+      
       <Lights />
       <Camera />
       <Sky />
-      <gridHelper args={[20, 20, 0xff0000, "teal"]} />
-      <axesHelper />
       <Apartment />
     </>
   );
