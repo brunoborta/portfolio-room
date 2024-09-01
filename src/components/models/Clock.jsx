@@ -1,28 +1,28 @@
 import { useGLTF } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export function Clock(props) {
   const [time, setTime] = useState({ hourRotation: 0, minuteRotation: 0 });
 
   const { nodes, materials } = useGLTF("/models/Clock.gltf");
+  const updateTime = useCallback(() => {
+    const now = new Date();
+    const hours = now.getHours() % 12; // Convert to 12-hour format
+    const minutes = now.getMinutes();
+
+    // Calculate the rotation for the hour and minute hands
+    const hourRotation = (hours + minutes / 60) * (Math.PI / 6); // 30 degrees per hour
+    const minuteRotation = minutes * (Math.PI / 30); // 6 degrees per minute
+
+    setTime({ hourRotation, minuteRotation });
+  }, []);
+
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const hours = now.getHours() % 12; // Convert to 12-hour format
-      const minutes = now.getMinutes();
-
-      // Calculate the rotation for the hour and minute hands
-      const hourRotation = (hours + minutes / 60) * (Math.PI / 6); // 30 degrees per hour
-      const minuteRotation = minutes * (Math.PI / 30); // 6 degrees per minute
-
-      setTime({ hourRotation, minuteRotation });
-    };
-
     updateTime();
     const interval = setInterval(updateTime, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [updateTime]);
 
   return (
     <group {...props} dispose={null}>
