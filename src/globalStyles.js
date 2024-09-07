@@ -14,12 +14,18 @@ html {
   --green: #82C752;
   --brown: #A28E7F;
   --beige: #DEBD9C;
+  --peach: #f6b092;
+  --transparent: rgba(246, 245, 238, .3);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 #root {
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   display: flex;
   justify-content: center;
   align-items: center;

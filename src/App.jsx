@@ -11,6 +11,7 @@ import GlobalStyle from "./globalStyles";
 import { Scroll, ScrollControls } from "@react-three/drei";
 
 import config from "./utils/config";
+import Intro from "./components/UI/Intro";
 
 function App() {
   const [hideDebug, setHideDebug] = useState(true);
@@ -24,9 +25,10 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Leva hidden={hideDebug} />
       <AudioPlayer />
-      <GlobalStyle />
+      <Intro />
       <Canvas
         camera={{
           fov: 45,
@@ -39,11 +41,11 @@ function App() {
         onPointerMove={handlePointerMove}
       >
         <Suspense fallback={null}>
-          <Experience />
           <ScrollControls
             damping={config.sections.length + 1}
             pages={config.sections.length}
           >
+            <Experience />
             <Scroll html>
               <Interface />
             </Scroll>

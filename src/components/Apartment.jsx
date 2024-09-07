@@ -18,20 +18,20 @@ function Apartment() {
   const currentRotation = useRef({ x: 0, y: 0 });
   const { targetRotation } = useMouseRotation();
   const smoothFactor = 0.1;
-  const lerpEase = 0.1;
+  const lerpFactor = 0.1;
 
   useFrame(() => {
     if (apartmentRef.current) {
       currentRotation.current.x = THREE.MathUtils.lerp(
         currentRotation.current.x,
         targetRotation.current.x,
-        lerpEase
+        lerpFactor
       );
 
       currentRotation.current.y = THREE.MathUtils.lerp(
         currentRotation.current.y,
         targetRotation.current.y,
-        lerpEase
+        lerpFactor
       );
 
       apartmentRef.current.rotation.x =

@@ -39,6 +39,9 @@ module.exports = {
           "receiveShadow",
           "castShadow",
           "transparent",
+          "position-x",
+          "position-y",
+          "position-z"
         ],
       },
     ],

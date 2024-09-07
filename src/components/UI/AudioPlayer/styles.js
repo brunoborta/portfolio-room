@@ -4,12 +4,12 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 10rem 1fr;
   position: fixed;
-  top: -16vh;
+  top: -16dvh;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  max-height: 15vh;
-  width: 40vw;
+  max-height: 15dvh;
+  width: 40dvw;
   z-index: 10;
 
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);

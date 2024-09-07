@@ -2,7 +2,8 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
-export function SteamEffect({ count = 100, isPurifierOn = false }) {
+// export function SteamEffect({ count = 100, isPurifierOn = false }) {
+export function SteamEffect({ count = 100 }) {
   const meshRef = useRef();
   const dummy = useMemo(() => new THREE.Object3D(), []);
 

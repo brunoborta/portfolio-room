@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useControls, folder } from "leva";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 
 export default function Camera() {

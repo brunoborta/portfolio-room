@@ -1,4 +1,4 @@
-import { Environment, Sky } from "@react-three/drei";
+import { Sky } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useControls } from "leva";
 
@@ -14,7 +14,6 @@ export default function Experience() {
   return (
     <>
       {perfVisible && <Perf position="top-left" />}
-      
       <Lights />
       <Camera />
       <Sky />
