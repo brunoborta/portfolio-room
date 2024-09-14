@@ -61,20 +61,9 @@ export const Sentence = styled.h2`
 `;
 
 export const BackgroundVideo = styled.video`
-  /* Make video to at least 100% wide and tall */
-  /* min-width: 100%;
-  min-height: 100%; */
-
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
-  /* width: auto;
-  height: auto; */
-
   position: absolute;
   top: 0;
   left: 0;
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   z-index: -1;
 
   filter: brightness(140%);

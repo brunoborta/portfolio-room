@@ -41,10 +41,7 @@ function App() {
         onPointerMove={handlePointerMove}
       >
         <Suspense fallback={null}>
-          <ScrollControls
-            damping={config.sections.length + 1}
-            pages={config.sections.length}
-          >
+          <ScrollControls damping={0.2} pages={config.sections.length}>
             <Experience />
             <Scroll html>
               <Interface />

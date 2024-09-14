@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 
@@ -14,6 +14,7 @@ import {
 
 import video from "/media/intro.mp4";
 import FancyButton from "../FancyButton";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -22,18 +23,18 @@ const Intro = () => {
   const cursorRef = useRef([]);
   const jokeRef = useRef();
   const buttonRef = useRef();
+  const tl = useRef(gsap.timeline());
   const [isVisible, setVisible] = useState(true);
 
   const handleClick = () => {
     setVisible(false);
   };
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-
-    tl.to(cursorRef.current[0], {
-      visibility: "visible",
-    })
+  useGSAP(() => {
+    tl.current
+      .to(cursorRef.current[0], {
+        visibility: "visible",
+      })
       .to(
         cursorRef.current[0],
         {
@@ -164,9 +165,7 @@ const Intro = () => {
         opacity: 1,
         duration: 1,
       });
-
-    () => tl.kill();
-  }, []);
+  });
 
   return (
     <Container isVisible={isVisible}>

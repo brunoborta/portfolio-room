@@ -14,7 +14,7 @@ function Lights() {
           },
         },
         position: {
-          x: 1.1,
+          x: -13.1,
           y: -0.2,
           z: 4.7,
           onChange: (v) => {
