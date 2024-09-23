@@ -4,9 +4,9 @@ const transitionTime = "0.6s";
 
 export const Container = styled.div`
   position: relative;
-  display: flex;
-  margin-top: 2rem;
-  opacity: 0;
+  display: ${({ $isVisible }) => ($isVisible ? "flex" : "none")};
+  margin-top: ${({ $marginTop }) => ($marginTop ? $marginTop : "2rem")};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
 
   // All hover effects
   button:hover + div {
@@ -33,11 +33,14 @@ export const Button = styled.button`
 
   border-radius: 3rem;
   padding: 1.25rem 3rem;
+  width: 100%;
 
   cursor: pointer;
   opacity: 1;
   overflow: hidden;
   z-index: 10;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Reflection = styled.div`
@@ -80,6 +83,5 @@ export const Shadow = styled.div`
   left: 0;
   border: 3px solid black;
   border-radius: 3rem;
-  z-index: -1;
   transition: all ${transitionTime} ease;
 `;

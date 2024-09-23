@@ -10,8 +10,8 @@ import { useMouseRotation } from "./hooks/useMouseRotation";
 import GlobalStyle from "./globalStyles";
 import { Scroll, ScrollControls } from "@react-three/drei";
 
-import config from "./utils/config";
 import Intro from "./components/UI/Intro";
+import ToggleMode from "./components/UI/ToggleMode";
 
 function App() {
   const [hideDebug, setHideDebug] = useState(true);
@@ -26,9 +26,10 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <ToggleMode />
       <Leva hidden={hideDebug} />
       <AudioPlayer />
-      <Intro />
+      {/* <Intro />  */}
       <Canvas
         camera={{
           fov: 45,
@@ -41,7 +42,7 @@ function App() {
         onPointerMove={handlePointerMove}
       >
         <Suspense fallback={null}>
-          <ScrollControls damping={0.2} pages={config.sections.length}>
+          <ScrollControls damping={0.2} pages={9}>
             <Experience />
             <Scroll html>
               <Interface />

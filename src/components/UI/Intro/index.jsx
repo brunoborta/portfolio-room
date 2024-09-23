@@ -24,13 +24,32 @@ const Intro = () => {
   const jokeRef = useRef();
   const buttonRef = useRef();
   const tl = useRef(gsap.timeline());
-  const [isVisible, setVisible] = useState(true);
+  const tlButton = useRef(gsap.timeline());
+  const [isShowRoom, setShowRoom] = useState(false);
 
   const handleClick = () => {
-    setVisible(false);
+    setShowRoom(true);
   };
 
   useGSAP(() => {
+    if (buttonRef.current) {
+      setInterval(() => {
+        tlButton.current
+          .to(buttonRef.current, {
+            rotateZ: 2,
+            duration: 0.04,
+          })
+          .to(buttonRef.current, {
+            rotateZ: -2,
+            duration: 0.04,
+          })
+          .to(buttonRef.current, {
+            rotateZ: 0,
+            duration: 0.04,
+          });
+      }, 20000);
+    }
+
     tl.current
       .to(cursorRef.current[0], {
         visibility: "visible",
@@ -163,12 +182,13 @@ const Intro = () => {
       })
       .to(buttonRef.current, {
         opacity: 1,
+        display: "flex",
         duration: 1,
       });
   });
 
   return (
-    <Container isVisible={isVisible}>
+    <Container $isShowRoom={isShowRoom}>
       <Wrapper>
         <BackgroundVideo autoPlay loop muted id="intro-video">
           <source src={video} type="video/mp4" />
@@ -176,12 +196,12 @@ const Intro = () => {
         {[...Array(4)].map((_, index) => (
           <SentenceWrapper key={`intro-${index}`}>
             <Sentence ref={(el) => (textRef.current[index] = el)}></Sentence>
-            <Cursor ref={(el) => (cursorRef.current[index] = el)}>_</Cursor>
             {index === 1 && <Joke ref={jokeRef}></Joke>}
+            <Cursor ref={(el) => (cursorRef.current[index] = el)}>_</Cursor>
           </SentenceWrapper>
         ))}
-        <FancyButton ref={buttonRef} isVisible={false} onClick={handleClick}>
-          Click to see more!
+        <FancyButton ref={buttonRef} onClick={handleClick} isVisible={false}>
+          I doubt you&apos;ll click me!
         </FancyButton>
       </Wrapper>
     </Container>

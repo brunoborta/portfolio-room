@@ -1,30 +1,13 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef } from "react";
 import { Button, Reflection, Container, Shadow } from "./styles";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
-const FancyButton = forwardRef(function Butt({ children, onClick }, ref) {
-  const tl = useRef(gsap.timeline({ repeat: 16, yoyo: true }));
-  useGSAP(() => {
-    setInterval(() => {
-      tl.current
-        .to(ref.current, {
-          rotateZ: 2,
-          duration: 0.04,
-        })
-        .to(ref.current, {
-          rotateZ: -2,
-          duration: 0.04,
-        })
-        .to(ref.current, {
-          rotateZ: 0,
-          duration: 0.04,
-        });
-    }, 20000);
-  });
+const FancyButton = forwardRef(function Butt(
+  { children, onClick, isVisible = true, marginTop = "2rem", type = "button" },
+  ref
+) {
   return (
-    <Container ref={ref}>
-      <Button onClick={onClick}>
+    <Container $isVisible={isVisible} $marginTop={marginTop} ref={ref}>
+      <Button onClick={onClick} type={type}>
         <Reflection />
         {children}
       </Button>

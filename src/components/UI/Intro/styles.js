@@ -26,9 +26,9 @@ export const Container = styled.div`
   mask: url(/media/nature-sprite.png);
   -webkit-mask-size: 2300% 100%;
   mask-size: 2300% 100%;
-  -webkit-animation: ${(props) => (props.isVisible ? null : maskPlay)} 1.4s
+  -webkit-animation: ${(props) => (props.$isShowRoom ? maskPlay : null)} 1.4s
     steps(22) forwards;
-  animation: ${(props) => (props.isVisible ? null : maskPlay)} 1.4s steps(22)
+  animation: ${(props) => (props.$isShowRoom ? maskPlay : null)} 1.4s steps(22)
     forwards;
 `;
 

@@ -15,6 +15,9 @@ import { useMouseRotation } from "../hooks/useMouseRotation";
 import { useScroll } from "@react-three/drei";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useCamera } from "../hooks/useCamera";
+import { Contact } from "./models/Contact";
+import { Envelope } from "./models/Envelope";
 
 function Apartment() {
   const timeline = useRef();
@@ -24,7 +27,9 @@ function Apartment() {
   const { targetRotation } = useMouseRotation();
   const smoothFactor = 0.1;
   const lerpFactor = 0.1;
+
   const scroll = useScroll();
+  const { cameraRef } = useCamera();
 
   useFrame(() => {
     if (timeline.current) {
@@ -62,13 +67,51 @@ function Apartment() {
       .to(
         apartmentRef.current.position,
         {
-          x: 8,
-          duration: 1,
+          x: 6,
+        },
+        "<"
+      )
+      .to(cameraRef.current.position, {
+        x: 1.4,
+        y: 4.5,
+        z: 5.9,
+        ease: "power2.inOut",
+      })
+      .to(
+        apartmentRef.current.position,
+        {
+          x: 3,
+        },
+        "<"
+      )
+      .to(cameraRef.current.position, {
+        x: 0.5,
+        y: 3.9,
+        z: 1.2,
+        ease: "power2.inOut",
+      })
+      .to(
+        apartmentRef.current.position,
+        {
+          x: 1,
+        },
+        "<"
+      )
+      // Contact
+      .to(cameraRef.current.position, {
+        x: -4.6,
+        y: 5.8,
+        z: 17,
+        ease: "power2.inOut",
+      })
+      .to(
+        apartmentRef.current.position,
+        {
+          x: 1,
         },
         "<"
       );
   });
-
   return (
     <group ref={apartmentRef}>
       <mesh ref={floor} position-z={-7}>
@@ -84,6 +127,8 @@ function Apartment() {
       <Table />
       <Trash />
       <Player />
+      <Contact />
+      <Envelope />
     </group>
   );
 }

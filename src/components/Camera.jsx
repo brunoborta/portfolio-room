@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useControls, folder } from "leva";
 import { PerspectiveCamera } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
+import { useCamera } from "../hooks/useCamera";
 
 export default function Camera() {
-  const cameraRef = useRef();
+  const { cameraRef } = useCamera();
   const { set } = useThree();
 
   const {
@@ -39,7 +40,7 @@ export default function Camera() {
     if (cameraRef.current) {
       set({ camera: cameraRef.current });
     }
-  }, [set]);
+  }, [set, cameraRef]);
 
   // Update the camera
   useEffect(() => {
@@ -52,6 +53,7 @@ export default function Camera() {
       cameraRef.current.updateProjectionMatrix();
     }
   }, [
+    cameraRef,
     positionX,
     positionY,
     positionZ,

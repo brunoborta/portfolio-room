@@ -28,6 +28,14 @@ export const Subtitle = styled.h2`
   font-size: 1.5rem;
 `;
 
+export const Paragraph = styled.p`
+  font-size: 1.1rem;
+`;
+
+export const Comment = styled.p`
+  font-size: 0.7rem;
+`;
+
 export const TitleSection = styled(Title)`
   font-family: "Gravitas One", cursive;
   margin: 5rem 0;
@@ -67,6 +75,11 @@ export const Section = styled.section`
   height: ${({ height }) => height || "100dvh"};
 `;
 
+export const SectionFull = styled(Section)`
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+`;
+
 export const SectionWithPadding = styled(Section)`
   padding: 0 4rem;
 `;
@@ -96,12 +109,33 @@ export const YellowContainer = styled.div`
   background-color: var(--beige);
   height: 100%;
   width: 100%;
-  grid-column: 1;
-  grid-row: 1 / 3;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  grid-column: ${(props) => props.$column ?? 1};
+  grid-row: ${(props) => props.$row ?? 2};
+  border-top-right-radius: ${(props) => (props.$left ? "2rem" : 0)};
+  border-bottom-right-radius: ${(props) => (props.$left ? "2rem" : 0)};
+  border-bottom-left-radius: ${(props) => (props.$right ? "2rem" : 0)};
+  border-top-left-radius: ${(props) => (props.$right ? "2rem" : 0)};
+
+  border-bottom-right-radius: ${(props) => props.$noBorderBottom && 0};
+  border-top-right-radius: ${(props) => props.$noBorderTop && 0};
 
   display: flex;
   flex-direction: column;
   /* align-items: center; */
+`;
+
+export const Socials = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 5rem;
+  svg {
+    height: 4rem;
+    width: 4rem;
+  }
+`;
+
+export const GradientSVG = styled.svg`
+  height: 0;
+  width: 0;
 `;

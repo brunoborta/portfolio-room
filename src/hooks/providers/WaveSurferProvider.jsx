@@ -17,7 +17,7 @@ export const WaveSurferProvider = ({ children }) => {
   const [duration, setDuration] = useState("0:00");
 
   useEffect(() => {
-    const initWaveSurfer = async () => {
+    const initWaveSurfer = () => {
       try {
         // Initialize WaveSurfer
         wavesurferRef.current = WaveSurfer.create({
@@ -31,9 +31,8 @@ export const WaveSurferProvider = ({ children }) => {
           barGap: 2,
           dragToSeek: true,
           hideScrollbar: true,
+          url: "/media/song.mp3",
         });
-
-        wavesurferRef.current.load("/media/song.mp3");
 
         wavesurferRef.current.on("ready", () => {
           const duration = wavesurferRef.current.getDuration();

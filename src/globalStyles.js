@@ -18,7 +18,7 @@ html {
   --transparent: rgba(246, 245, 238, .3);
 }
 
-body {
+body, input, textarea, button {
   font-family: "Poppins", sans-serif;
 }
 
