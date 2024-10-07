@@ -12,7 +12,7 @@ import { useEmailSuccess } from "../../../hooks/useEmailSuccess";
 const Form = () => {
   const { register, reset, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-  const sls = useEmailSuccess();
+  const { setEmailSuccess } = useEmailSuccess();
 
   const onSubmit = async (data) => {
     const params = {
@@ -28,11 +28,10 @@ const Form = () => {
     //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     // );
     // if (response.status === 200) {
-    //   console.log("animation!!");
+    setEmailSuccess(true);
     // } else {
     //   console.log("error");
     // }
-    console.log(sls);
     setTimeout(() => {
       reset();
       setLoading(false);

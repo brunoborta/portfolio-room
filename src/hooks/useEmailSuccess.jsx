@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import { EmailSuccessContext } from "./providers/EmailSuccessProvider";
+import { create } from "zustand";
 
-export const useEmailSuccess = () => {
-  const context = useContext(EmailSuccessContext);
-  if (context === null) {
-    console.warn("useEmailSuccess must be used within an EmailSuccessProvider");
-  }
-  return context;
-};
+export const useEmailSuccess = create((set) => ({
+  emailSuccess: false,
+  setEmailSuccess: (value) => set({ emailSuccess: value }),
+}));

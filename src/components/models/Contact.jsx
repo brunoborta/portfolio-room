@@ -4,11 +4,11 @@ import { useGLTF } from "@react-three/drei";
 export function Contact(props) {
   const mailboxDoor = useRef();
   const { nodes, materials } = useGLTF("/models/Contact.gltf");
+  console.log(materials.Light);
   return (
     <group {...props} dispose={null}>
       <mesh
         name="Contact_Area_Floor"
-        castShadow
         receiveShadow
         geometry={nodes.Contact_Area_Floor.geometry}
         material={materials.Floor}
@@ -18,8 +18,6 @@ export function Contact(props) {
       />
       <mesh
         name="Cube036"
-        castShadow
-        receiveShadow
         geometry={nodes.Cube036.geometry}
         material={materials.Lamp}
         position={[-3.215, 0.97, 5.548]}
@@ -29,7 +27,6 @@ export function Contact(props) {
       <mesh
         name="Cube037"
         castShadow
-        receiveShadow
         geometry={nodes.Cube037.geometry}
         material={materials.Light}
         position={[-3.215, 0.97, 5.548]}
@@ -45,21 +42,18 @@ export function Contact(props) {
         <mesh
           name="Cylinder038"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder038.geometry}
           material={materials.Trunk}
         />
         <mesh
           name="Cylinder038_1"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder038_1.geometry}
           material={materials.Mailbox}
         />
         <mesh
           name="Cylinder038_2"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder038_2.geometry}
           material={materials["Table Top"]}
         />
@@ -67,7 +61,6 @@ export function Contact(props) {
       <mesh
         name="Flag"
         castShadow
-        receiveShadow
         geometry={nodes.Flag.geometry}
         material={materials["Mail Flag"]}
         position={[-1.834, 1.902, 7.443]}
@@ -84,21 +77,18 @@ export function Contact(props) {
         <mesh
           name="Cylinder001"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder001.geometry}
           material={materials.Mailbox}
         />
         <mesh
           name="Cylinder001_1"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder001_1.geometry}
           material={materials["Table Top"]}
         />
         <mesh
           name="Cylinder001_2"
           castShadow
-          receiveShadow
           geometry={nodes.Cylinder001_2.geometry}
           material={materials.White}
         />
@@ -106,7 +96,6 @@ export function Contact(props) {
       <mesh
         name="Circle"
         castShadow
-        receiveShadow
         geometry={nodes.Circle.geometry}
         material={materials["Flower Yellow"]}
         position={[-4.514, 1.612, 6.548]}
@@ -116,7 +105,6 @@ export function Contact(props) {
       <mesh
         name="Plane004"
         castShadow
-        receiveShadow
         geometry={nodes.Plane004.geometry}
         material={materials.White}
         position={[-4.514, 1.606, 6.55]}
@@ -126,7 +114,6 @@ export function Contact(props) {
       <mesh
         name="Plane005"
         castShadow
-        receiveShadow
         geometry={nodes.Plane005.geometry}
         material={materials.Leaf}
         position={[-4.524, 1.247, 6.541]}
@@ -136,7 +123,6 @@ export function Contact(props) {
       <mesh
         name="Plane009"
         castShadow
-        receiveShadow
         geometry={nodes.Plane009.geometry}
         material={materials.Leaf}
         position={[-4.547, 1.348, 6.526]}
@@ -146,7 +132,6 @@ export function Contact(props) {
       <mesh
         name="Circle002"
         castShadow
-        receiveShadow
         geometry={nodes.Circle002.geometry}
         material={materials["Flower Yellow"]}
         position={[-4.156, 1.775, 6.339]}
@@ -156,7 +141,6 @@ export function Contact(props) {
       <mesh
         name="Plane010"
         castShadow
-        receiveShadow
         geometry={nodes.Plane010.geometry}
         material={materials.White}
         position={[-4.158, 1.77, 6.34]}
@@ -166,7 +150,6 @@ export function Contact(props) {
       <mesh
         name="Plane012"
         castShadow
-        receiveShadow
         geometry={nodes.Plane012.geometry}
         material={materials.Leaf}
         position={[-4.203, 1.423, 6.382]}
@@ -176,7 +159,6 @@ export function Contact(props) {
       <mesh
         name="Circle003"
         castShadow
-        receiveShadow
         geometry={nodes.Circle003.geometry}
         material={materials["Flower Yellow"]}
         position={[-5.144, 1.646, 7.022]}
@@ -186,7 +168,6 @@ export function Contact(props) {
       <mesh
         name="Plane013"
         castShadow
-        receiveShadow
         geometry={nodes.Plane013.geometry}
         material={materials.White}
         position={[-5.146, 1.641, 7.022]}
@@ -196,7 +177,6 @@ export function Contact(props) {
       <mesh
         name="Plane014"
         castShadow
-        receiveShadow
         geometry={nodes.Plane014.geometry}
         material={materials.Leaf}
         position={[-4.94, 1.087, 6.84]}
@@ -206,7 +186,6 @@ export function Contact(props) {
       <mesh
         name="Plane015"
         castShadow
-        receiveShadow
         geometry={nodes.Plane015.geometry}
         material={materials.Leaf}
         position={[-5.103, 1.33, 7.021]}
@@ -216,7 +195,6 @@ export function Contact(props) {
       <mesh
         name="Cylinder026"
         castShadow
-        receiveShadow
         geometry={nodes.Cylinder026.geometry}
         material={materials["Flower Stem"]}
         position={[-4.508, 1.283, 6.522]}
@@ -226,7 +204,6 @@ export function Contact(props) {
       <mesh
         name="Cylinder027"
         castShadow
-        receiveShadow
         geometry={nodes.Cylinder027.geometry}
         material={materials["Flower Stem"]}
         position={[-4.081, 1.414, 6.256]}
@@ -236,7 +213,6 @@ export function Contact(props) {
       <mesh
         name="Cylinder028"
         castShadow
-        receiveShadow
         geometry={nodes.Cylinder028.geometry}
         material={materials["Flower Stem"]}
         position={[-5.124, 1.318, 7.004]}
@@ -246,7 +222,6 @@ export function Contact(props) {
       <mesh
         name="Circle001"
         castShadow
-        receiveShadow
         geometry={nodes.Circle001.geometry}
         material={materials["Flower Yellow"]}
         position={[-4.825, 1.718, 6.783]}
@@ -256,7 +231,6 @@ export function Contact(props) {
       <mesh
         name="Plane007"
         castShadow
-        receiveShadow
         geometry={nodes.Plane007.geometry}
         material={materials.White}
         position={[-4.824, 1.712, 6.785]}
@@ -266,7 +240,6 @@ export function Contact(props) {
       <mesh
         name="Plane008"
         castShadow
-        receiveShadow
         geometry={nodes.Plane008.geometry}
         material={materials.Leaf}
         position={[-4.837, 1.353, 6.784]}
@@ -276,7 +249,6 @@ export function Contact(props) {
       <mesh
         name="Plane011"
         castShadow
-        receiveShadow
         geometry={nodes.Plane011.geometry}
         material={materials.Leaf}
         position={[-4.847, 1.464, 6.777]}
@@ -286,7 +258,6 @@ export function Contact(props) {
       <mesh
         name="Cylinder029"
         castShadow
-        receiveShadow
         geometry={nodes.Cylinder029.geometry}
         material={materials["Flower Stem"]}
         position={[-4.837, 1.389, 6.758]}
@@ -296,7 +267,6 @@ export function Contact(props) {
       <mesh
         name="Plane016"
         castShadow
-        receiveShadow
         geometry={nodes.Plane016.geometry}
         material={materials["Highlight Key"]}
         position={[-3.425, 0.947, 7.657]}
@@ -311,15 +281,12 @@ export function Contact(props) {
       >
         <mesh
           name="Plane019"
-          castShadow
-          receiveShadow
           geometry={nodes.Plane019.geometry}
           material={materials.Earth}
         />
         <mesh
           name="Plane019_1"
           castShadow
-          receiveShadow
           geometry={nodes.Plane019_1.geometry}
           material={materials["Flower Box Bottom"]}
         />

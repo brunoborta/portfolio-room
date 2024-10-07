@@ -41,3 +41,10 @@ export const ToggleBall = styled.div`
     height: 1.2rem;
   }
 `;
+
+export const Icon = styled.svg`
+  fill: ${({ theme }) => theme.colors.icon};
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.3s ease;
+`;

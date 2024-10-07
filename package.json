@@ -28,7 +28,8 @@
     "sharp": "^0.33.5",
     "styled-components": "^6.1.1",
     "three": "^0.159.0",
-    "wavesurfer.js": "^7.8.4"
+    "wavesurfer.js": "^7.8.4",
+    "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

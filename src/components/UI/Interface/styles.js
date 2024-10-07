@@ -20,32 +20,41 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 export const Title = styled.h1`
   font-size: 2.5rem;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
 `;
 export const Subtitle = styled.h2`
   font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
 `;
 
 export const Paragraph = styled.p`
   font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
 `;
 
 export const Comment = styled.p`
   font-size: 0.7rem;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
 `;
 
 export const TitleSection = styled(Title)`
   font-family: "Gravitas One", cursive;
   margin: 5rem 0;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
 `;
 
 export const Mouse = styled.div`
   position: absolute;
   bottom: 5rem;
   left: 50%;
-  border: 2px solid var(--navy-blue);
+  border: 2px solid ${({ theme }) => theme.colors.mouse};
   transform: translateX(-50%);
   height: 3.3rem;
   width: 2rem;
@@ -59,7 +68,8 @@ export const Mouse = styled.div`
     transform: translateX(-50%);
     height: 0.6rem;
     width: 0.6rem;
-    background-color: var(--navy-blue);
+    background-color: ${({ theme }) => theme.colors.mouse};
+
     border-radius: 50%;
 
     animation: ${mouseScroll} 2s infinite;
@@ -82,6 +92,11 @@ export const SectionFull = styled(Section)`
 
 export const SectionWithPadding = styled(Section)`
   padding: 0 4rem;
+  h1,
+  h2,
+  p {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const SectionBlank = styled(Section)`
@@ -106,7 +121,7 @@ export const PortfolioWrapper = styled.div`
 
 export const YellowContainer = styled.div`
   padding: 0 4rem;
-  background-color: var(--beige);
+  background-color: ${({ theme }) => theme.colors.backgroundStory};
   height: 100%;
   width: 100%;
   grid-column: ${(props) => props.$column ?? 1};
@@ -121,7 +136,7 @@ export const YellowContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  transition: all var(--time-animation-theme) ease;
 `;
 
 export const Socials = styled.div`

@@ -1,9 +1,34 @@
-import { Environment } from "@react-three/drei";
+import { useGSAP } from "@gsap/react";
 import { folder, useControls } from "leva";
 import { useRef } from "react";
+import { useTheme } from "../hooks/useTheme";
+import gsap from "gsap";
 
 function Lights() {
   const directionalRef = useRef();
+  const ambientRef = useRef();
+  const { isLight } = useTheme();
+  useGSAP(() => {
+    if (isLight) {
+      gsap.to([ambientRef.current.color, directionalRef.current.color], {
+        r: 1,
+        g: 1,
+        b: 1,
+      });
+      gsap.to([ambientRef.current, directionalRef.current], {
+        intensity: 1,
+      });
+    } else {
+      gsap.to([ambientRef.current.color, directionalRef.current.color], {
+        r: 93 / 255,
+        g: 113 / 255,
+        b: 191 / 255,
+      });
+      gsap.to([ambientRef.current, directionalRef.current], {
+        intensity: 0.78,
+      });
+    }
+  }, [isLight]);
   useControls({
     "Directional Light": folder(
       {
@@ -35,19 +60,22 @@ function Lights() {
             directionalRef.current.castShadow = v;
           },
         },
+        color: {
+          value: "rgb(93, 113, 191)",
+        },
       },
       { collapsed: true }
     ),
   });
   return (
     <>
-      <Environment preset="apartment" />
       <directionalLight
         ref={directionalRef}
         position={[-1.1, -0.2, 4.7]}
         castShadow={true}
-        intensity={1}
+        intensity={0.78}
       />
+      <ambientLight ref={ambientRef} intensity={1} />
     </>
   );
 }

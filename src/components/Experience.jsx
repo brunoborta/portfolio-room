@@ -5,7 +5,7 @@ import { folder, useControls } from "leva";
 import Camera from "./Camera";
 import Apartment from "./Apartment";
 import Lights from "./Lights";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTheme } from "../hooks/useTheme";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -37,41 +37,16 @@ export default function Experience() {
     ),
   });
 
-  useEffect(() => {
-    // setInclination(isLight ? 0.55 : 0.45);
-    console.log("isLight", isLight);
+  useGSAP(() => {
     gsap.to(setInclination, {
-      duration: 0.2, // Duration of 5 seconds
+      duration: 0.2,
       ease: "power2.inOut",
       onUpdate: () => {
-        setInclination((prev) => (isLight ? prev + 0.01 : prev - 0.01)); // Smoothly decrease inclination
+        setInclination((prev) => (isLight ? prev + 0.05 : prev - 0.05)); // Smoothly decrease inclination
       },
-      onComplete: () => console.log("Animation complete"), // Optional
+      onComplete: () => console.log("Animation complete", inclination), // Optional
     });
   }, [isLight]);
-
-  // const turnDayNight = (inclination) => {
-  //   if (!skyRef.current) return;
-  //   console.log(
-  //     "inclination",
-  //     isLight,
-  //     skyRef.current.inclination,
-  //     skyRef.current
-  //   );
-
-  //   return gsap.to(skyRef.current, {
-  //     inclination: inclination,
-  //     duration: 0.5,
-  //     ease: "power3.inOut",
-  //     onUpdate: () => {
-  //       skyRef.current.updateMatrixWorld(true);
-  //     },
-  //   });
-  // };
-
-  // useGSAP(() => {
-  //   turnDayNight(isLight ? 0.55 : 0.45);
-  // }, [isLight]);
 
   return (
     <>

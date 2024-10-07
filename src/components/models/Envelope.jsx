@@ -5,7 +5,6 @@ import { useEmailSuccess } from "../../hooks/useEmailSuccess";
 export function Envelope(props) {
   const { nodes, materials } = useGLTF("/models/Envelope.gltf");
   const { emailSuccess } = useEmailSuccess();
-  console.log(emailSuccess);
   const envelope = useRef();
 
   useEffect(() => {

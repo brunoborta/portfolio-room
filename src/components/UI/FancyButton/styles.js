@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const transitionTime = "0.6s";
+const lightBackgroundGradient =
+  "linear-gradient(to left, #f6a192, #f6b092, #f6c492, #f6cf92, #f6d992);";
+
+const darkBackgroundGradient =
+  "linear-gradient(to left, #2d3671, #393983, #314daf, #0567b7, #00d4ff);";
 
 export const Container = styled.div`
   position: relative;
@@ -20,14 +25,8 @@ export const Container = styled.div`
 export const Button = styled.button`
   position: relative;
   border: 3px solid black;
-  background: linear-gradient(
-    to left,
-    #f6a192,
-    #f6b092,
-    #f6c492,
-    #f6cf92,
-    #f6d992
-  );
+  background: ${({ $isLight }) =>
+    $isLight ? lightBackgroundGradient : darkBackgroundGradient};
   font-size: 2rem;
   font-weight: 700;
 
@@ -41,6 +40,8 @@ export const Button = styled.button`
   z-index: 10;
   display: flex;
   justify-content: center;
+
+  transition: all ${transitionTime} ease;
 `;
 
 export const Reflection = styled.div`
@@ -70,14 +71,9 @@ export const Reflection = styled.div`
 export const Shadow = styled.div`
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to left,
-    #f6a192,
-    #f6b092,
-    #f6c492,
-    #f6cf92,
-    #f6d992
-  );
+  background: ${({ $isLight }) =>
+    $isLight ? lightBackgroundGradient : darkBackgroundGradient};
+
   position: absolute;
   top: 0;
   left: 0;

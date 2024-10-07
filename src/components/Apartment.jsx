@@ -18,6 +18,7 @@ import { useGSAP } from "@gsap/react";
 import { useCamera } from "../hooks/useCamera";
 import { Contact } from "./models/Contact";
 import { Envelope } from "./models/Envelope";
+import { useTheme } from "../hooks/useTheme";
 
 function Apartment() {
   const timeline = useRef();
@@ -27,6 +28,7 @@ function Apartment() {
   const { targetRotation } = useMouseRotation();
   const smoothFactor = 0.1;
   const lerpFactor = 0.1;
+  const { getActualTheme } = useTheme();
 
   const scroll = useScroll();
   const { cameraRef } = useCamera();
@@ -115,7 +117,9 @@ function Apartment() {
   return (
     <group ref={apartmentRef}>
       <mesh ref={floor} position-z={-7}>
-        <meshBasicMaterial color="#cccccc" />
+        <meshBasicMaterial
+          color={getActualTheme().colors.backgroundTransition}
+        />
         <circleGeometry args={[5, 64, 64]} />
       </mesh>
       <Room />
