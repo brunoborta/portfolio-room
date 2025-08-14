@@ -10,19 +10,31 @@ import { useTheme } from "../hooks/useTheme";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+const THEME_SETTINGS = {
+  light: {
+    inclination: 0.55,
+    azimuth: 0.1,
+    mieCoefficient: 0.005,
+    mieDirectionalG: 0.8,
+    rayleigh: 0.5,
+    turbidity: 100,
+  },
+  dark: {
+    inclination: 0.2,
+    azimuth: 0.75,
+    mieCoefficient: 0.1,
+    mieDirectionalG: 0.6,
+    rayleigh: 0.7,
+    turbidity: 50,
+  }
+};
+
 export default function Experience() {
   const skyRef = useRef();
   const { isLight } = useTheme();
-  const [inclination, setInclination] = useState(0.55);
-  const {
-    perfVisible,
-    azimuth,
-    distance,
-    mieCoefficient,
-    mieDirectionalG,
-    rayleigh,
-    turbidity,
-  } = useControls({
+  const [skySettings, setSkySettings] = useState(THEME_SETTINGS.light);
+  
+  const { perfVisible } = useControls({
     perfVisible: { value: false, label: "Show Performance" },
     Sky: folder(
       {
@@ -38,30 +50,30 @@ export default function Experience() {
   });
 
   useGSAP(() => {
-    gsap.to(setInclination, {
-      duration: 0.2,
+    const targetSettings = isLight ? THEME_SETTINGS.light : THEME_SETTINGS.dark;
+    
+    gsap.to(skySettings, {
+      duration: 1,
       ease: "power2.inOut",
-      onUpdate: () => {
-        setInclination((prev) => (isLight ? prev + 0.05 : prev - 0.05)); // Smoothly decrease inclination
-      },
-      onComplete: () => console.log("Animation complete", inclination), // Optional
+      inclination: targetSettings.inclination,
+      azimuth: targetSettings.azimuth,
+      mieCoefficient: targetSettings.mieCoefficient,
+      mieDirectionalG: targetSettings.mieDirectionalG,
+      rayleigh: targetSettings.rayleigh,
+      turbidity: targetSettings.turbidity,
+      onUpdate: () => setSkySettings({...skySettings}),
     });
   }, [isLight]);
 
   return (
     <>
       {perfVisible && <Perf position="top-left" />}
-      <Lights />
+      <Lights isLight={isLight} />
       <Camera />
       <Sky
         ref={skyRef}
-        inclination={inclination}
-        azimuth={azimuth}
-        distance={distance}
-        mieCoefficient={mieCoefficient}
-        mieDirectionalG={mieDirectionalG}
-        rayleigh={rayleigh}
-        turbidity={turbidity}
+        {...skySettings}
+        distance={1000}
       />
       <Apartment />
     </>

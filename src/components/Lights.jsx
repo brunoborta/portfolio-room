@@ -1,34 +1,69 @@
 import { useGSAP } from "@gsap/react";
 import { folder, useControls } from "leva";
 import { useRef } from "react";
-import { useTheme } from "../hooks/useTheme";
 import gsap from "gsap";
 
-function Lights() {
+const THEME_LIGHTS = {
+  light: {
+    directional: {
+      color: { r: 1, g: 1, b: 1 },
+      intensity: 1,
+      position: [-1.1, -0.2, 4.7],
+    },
+    ambient: {
+      color: { r: 1, g: 1, b: 1 },
+      intensity: 1,
+    },
+  },
+  dark: {
+    directional: {
+      color: { r: 93 / 255, g: 113 / 255, b: 191 / 255 },
+      intensity: 0.78,
+      position: [-1.1, -0.2, 4.7],
+    },
+    ambient: {
+      color: { r: 93 / 255, g: 113 / 255, b: 191 / 255 },
+      intensity: 0.78,
+    },
+  },
+};
+
+function Lights({ isLight }) {
   const directionalRef = useRef();
   const ambientRef = useRef();
-  const { isLight } = useTheme();
+
   useGSAP(() => {
-    if (isLight) {
-      gsap.to([ambientRef.current.color, directionalRef.current.color], {
-        r: 1,
-        g: 1,
-        b: 1,
-      });
-      gsap.to([ambientRef.current, directionalRef.current], {
-        intensity: 1,
-      });
-    } else {
-      gsap.to([ambientRef.current.color, directionalRef.current.color], {
-        r: 93 / 255,
-        g: 113 / 255,
-        b: 191 / 255,
-      });
-      gsap.to([ambientRef.current, directionalRef.current], {
-        intensity: 0.78,
-      });
-    }
+    const theme = isLight ? THEME_LIGHTS.light : THEME_LIGHTS.dark;
+
+    // Animate directional light
+    gsap.to(directionalRef.current.color, {
+      r: theme.directional.color.r,
+      g: theme.directional.color.g,
+      b: theme.directional.color.b,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+    gsap.to(directionalRef.current, {
+      intensity: theme.directional.intensity,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+
+    // Animate ambient light
+    gsap.to(ambientRef.current.color, {
+      r: theme.ambient.color.r,
+      g: theme.ambient.color.g,
+      b: theme.ambient.color.b,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+    gsap.to(ambientRef.current, {
+      intensity: theme.ambient.intensity,
+      duration: 1,
+      ease: "power2.inOut",
+    });
   }, [isLight]);
+
   useControls({
     "Directional Light": folder(
       {
@@ -67,15 +102,16 @@ function Lights() {
       { collapsed: true }
     ),
   });
+
   return (
     <>
       <directionalLight
         ref={directionalRef}
         position={[-1.1, -0.2, 4.7]}
         castShadow={true}
-        intensity={0.78}
+        intensity={isLight ? 1 : 0.78}
       />
-      <ambientLight ref={ambientRef} intensity={1} />
+      <ambientLight ref={ambientRef} intensity={isLight ? 1 : 0.78} />
     </>
   );
 }
