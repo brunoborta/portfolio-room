@@ -17,7 +17,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useCamera } from "../hooks/useCamera";
 import { Contact } from "./models/Contact";
-import { Envelope } from "./models/Envelope";
 import { useTheme } from "../hooks/useTheme";
 
 function Apartment() {
@@ -132,7 +131,6 @@ function Apartment() {
       <Trash />
       <Player />
       <Contact />
-      <Envelope />
     </group>
   );
 }
