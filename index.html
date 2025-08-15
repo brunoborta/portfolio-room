@@ -2,15 +2,112 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Interactive 3D Portfolio of Bruno Borta - Full Stack Developer with experience in React, Three.js and modern technologies. Explore projects in an immersive virtual room." />
+    <meta name="keywords" content="portfolio, developer, react, three.js, 3d, frontend, fullstack, javascript, web development, interactive, immersive" />
+    <meta name="author" content="Bruno Borta" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bruno Borta - Interactive 3D Portfolio" />
+    <meta property="og:description" content="Explore my portfolio in an interactive 3D room. Full Stack Developer specialized in React, Three.js and immersive web experiences." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://brunoborta.dev" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Bruno Borta Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bruno Borta - Interactive 3D Portfolio" />
+    <meta name="twitter:description" content="Explore my portfolio in an interactive 3D room. Full Stack Developer specialized in React and Three.js." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:creator" content="@brunoborta" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#2D3671" />
+    <meta name="msapplication-TileColor" content="#2D3671" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Bruno Borta Portfolio" />
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruno "Borta" Bortagaray</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://brunoborta.dev" />
+    
+    <title>Bruno "Borta" Bortagaray - Interactive 3D Portfolio</title>
   </head>
   <body>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bruno Borta",
+      "alternateName": "Bruno Bortagaray",
+      "url": "https://brunoborta.dev",
+      "image": "https://brunoborta.dev/profile-image.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/brunobortagaray/",
+        "https://github.com/brunoborta",
+        "https://www.instagram.com/brunoborta/"
+      ],
+      "jobTitle": "Full Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "knowsAbout": [
+        "React",
+        "Three.js",
+        "JavaScript",
+        "Web Development",
+        "3D Graphics",
+        "Frontend Development"
+      ],
+      "description": "Full Stack Developer specialized in React, Three.js and interactive immersive web experiences."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Bruno Borta Portfolio",
+      "url": "https://brunoborta.dev",
+      "description": "Interactive 3D Portfolio of Bruno Borta - Full Stack Developer",
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Borta"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://brunoborta.dev/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

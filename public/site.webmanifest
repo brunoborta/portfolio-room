@@ -1,0 +1,25 @@
+{
+  "name": "Bruno Borta - Interactive 3D Portfolio",
+  "short_name": "Bruno Borta",
+  "description": "Interactive 3D Portfolio of Bruno Borta - Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2D3671",
+  "theme_color": "#2D3671",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "development", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}
