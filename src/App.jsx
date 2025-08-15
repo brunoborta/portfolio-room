@@ -4,13 +4,14 @@ import { Leva } from "leva";
 import Experience from "./components/Experience";
 import AudioPlayer from "./components/UI/AudioPlayer";
 import Interface from "./components/UI/Interface";
+import Navigation from "./components/UI/Navigation";
 
 import { useMouseRotation } from "./hooks/useMouseRotation";
 
 import GlobalStyle from "./globalStyles";
 import { Scroll, ScrollControls } from "@react-three/drei";
 
-import Intro from "./components/UI/Intro";
+// import Intro from "./components/UI/Intro";
 import ToggleMode from "./components/UI/ToggleMode";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <>
       <GlobalStyle />
       <ToggleMode />
+      <Navigation />
       <Leva hidden={hideDebug} />
       <AudioPlayer />
       {/* <Intro />  */}

@@ -1,7 +1,7 @@
 export const lightTheme = {
   colors: {
-    text: "#000",
-    sectionText: "#000",
+    text: "#333",
+    sectionText: "#333",
     backgroundStory: "#DEBD9C",
     backgroundTransition: "#cccccc",
     mouse: "#2D3671",

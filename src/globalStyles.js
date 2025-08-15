@@ -18,6 +18,8 @@ html {
   --transparent: rgba(246, 245, 238, .3);
 
   --time-animation-theme: 0.3s;
+  
+  scroll-behavior: smooth;
 }
 
 body, input, textarea, button {

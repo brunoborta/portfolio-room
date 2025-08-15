@@ -1,7 +1,7 @@
 import { Section, YellowContainer, TitleSection, Paragraph } from "../styles";
 
-const TwoWorlds = ({ theme }) => (
-  <Section height="150dvh">
+const TwoWorlds = ({ theme, id }) => (
+  <Section height="150dvh" id={id}>
     <YellowContainer $column={2} $row={1} $right theme={theme}>
       <TitleSection theme={theme}>
         Two Worlds (Not the Tarzan Song)

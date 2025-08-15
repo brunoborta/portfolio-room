@@ -8,8 +8,8 @@ import {
   SectionWithPadding,
 } from "../styles";
 
-const Hero = ({ theme, mouseRef }) => (
-  <SectionWithPadding theme={theme}>
+const Hero = ({ theme, mouseRef, id }) => (
+  <SectionWithPadding theme={theme} id={id}>
     <PortfolioWrapper>
       <Title theme={theme}>Bruno Borta</Title>
       <Subtitle theme={theme}>Portfolio</Subtitle>

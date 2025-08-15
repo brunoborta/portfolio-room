@@ -21,12 +21,13 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 export const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 8rem;
   color: ${({ theme }) => theme.colors.sectionText};
   transition: all var(--time-animation-theme) ease;
+  margin-bottom: 1rem;
 `;
 export const Subtitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: ${({ theme }) => theme.colors.sectionText};
   transition: all var(--time-animation-theme) ease;
 `;
@@ -43,9 +44,10 @@ export const Comment = styled.p`
   transition: all var(--time-animation-theme) ease;
 `;
 
-export const TitleSection = styled(Title)`
-  font-family: "Gravitas One", cursive;
-  margin: 5rem 0;
+export const TitleSection = styled.h2`
+  font-family: "Poppins", cursive;
+  font-size: 3rem;
+  margin: 3rem 0;
   color: ${({ theme }) => theme.colors.sectionText};
   transition: all var(--time-animation-theme) ease;
 `;

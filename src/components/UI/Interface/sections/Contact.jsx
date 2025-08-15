@@ -5,18 +5,12 @@ import {
   Paragraph,
   Socials,
   GradientSVG,
-} from '../styles';
-import Form from '../../Form';
+} from "../styles";
+import Form from "../../Form";
 
-const Contact = ({ theme, stopRefs }) => (
-  <Section height="100dvh">
-    <YellowContainer
-      $column={1}
-      $row={1}
-      $left
-      $noBorderBottom
-      theme={theme}
-    >
+const Contact = ({ theme, stopRefs, id }) => (
+  <Section height="100dvh" id={id}>
+    <YellowContainer $column={1} $row={1} $left $noBorderBottom theme={theme}>
       <TitleSection theme={theme}>Let&apos;s Connect</TitleSection>
       <Paragraph theme={theme}>
         Got a project in mind? A fun idea you want to chat about? Or maybe you
@@ -81,13 +75,7 @@ const Contact = ({ theme, stopRefs }) => (
         </a>
       </Socials>
     </YellowContainer>
-    <YellowContainer
-      $column={1}
-      $row={2}
-      $left
-      $noBorderTop
-      theme={theme}
-    >
+    <YellowContainer $column={1} $row={2} $left $noBorderTop theme={theme}>
       <Form />
     </YellowContainer>
   </Section>
