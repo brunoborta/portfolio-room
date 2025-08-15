@@ -52,7 +52,7 @@ export function Purifier(props) {
           />
         </group>
       </group>
-      {clicked && <SteamEffect count={50} isPurifierOn={clicked} />}
+      {clicked && <SteamEffect count={50} isOn={clicked} />}
     </>
   );
 }
