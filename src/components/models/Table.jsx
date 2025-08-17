@@ -1,12 +1,24 @@
 import { useGLTF, useVideoTexture } from "@react-three/drei";
-import { MeshBasicMaterial } from "three";
+import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { useTheme } from "../../hooks/useTheme";
 
 export function Table(props) {
   const { nodes, materials } = useGLTF("/models/Table.gltf");
   const videoTexture = useVideoTexture("/media/matrix.mp4");
   videoTexture.flipY = false;
+  const { isLight } = useTheme();
 
   const videoMaterial = new MeshBasicMaterial({ map: videoTexture });
+
+  // Create emissive material for the table lights
+  const lightMaterial = new MeshStandardMaterial({
+    color: "#FBFF4D",
+    emissive: "#FBFF4D",
+    emissiveIntensity: isLight ? 0 : 1,
+    transparent: true,
+    opacity: 0.8,
+  });
+
   return (
     <group {...props} dispose={null}>
       <group
@@ -111,7 +123,7 @@ export function Table(props) {
           name="Cube002_15"
           castShadow
           geometry={nodes.Cube002_15.geometry}
-          material={materials.Light}
+          material={lightMaterial}
         />
         <mesh
           name="Cube002_16"

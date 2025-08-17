@@ -4,7 +4,6 @@ import { useGLTF } from "@react-three/drei";
 export function Contact(props) {
   const mailboxDoor = useRef();
   const { nodes, materials } = useGLTF("/models/Contact.gltf");
-  console.log(materials.Light);
   return (
     <group {...props} dispose={null}>
       <mesh

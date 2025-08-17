@@ -24,9 +24,13 @@ export const Title = styled.h1`
   font-size: 8rem;
   color: ${({ theme }) => theme.colors.sectionText};
   transition: all var(--time-animation-theme) ease;
-  margin-bottom: 1rem;
 `;
-export const Subtitle = styled.h2`
+export const BigAsTitle = styled.h2`
+  font-size: 8rem;
+  color: ${({ theme }) => theme.colors.sectionText};
+  transition: all var(--time-animation-theme) ease;
+`;
+export const Subtitle = styled.h3`
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.sectionText};
   transition: all var(--time-animation-theme) ease;
@@ -44,7 +48,7 @@ export const Comment = styled.p`
   transition: all var(--time-animation-theme) ease;
 `;
 
-export const TitleSection = styled.h2`
+export const TitleSection = styled.h3`
   font-family: "Poppins", cursive;
   font-size: 3rem;
   margin: 3rem 0;
@@ -88,8 +92,14 @@ export const Section = styled.section`
 `;
 
 export const SectionFull = styled(Section)`
+  padding: 0 4rem;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  h1,
+  h2,
+  p {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const SectionWithPadding = styled(Section)`
@@ -107,18 +117,20 @@ export const SectionBlank = styled(Section)`
 `;
 
 export const TitleWrapper = styled.div`
-  grid-column: 1;
   grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 export const PortfolioWrapper = styled.div`
-  grid-column: 2;
   grid-row: 1;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 
 export const YellowContainer = styled.div`

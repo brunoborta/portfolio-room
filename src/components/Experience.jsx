@@ -26,14 +26,14 @@ const THEME_SETTINGS = {
     mieDirectionalG: 0.6,
     rayleigh: 0.7,
     turbidity: 50,
-  }
+  },
 };
 
 export default function Experience() {
   const skyRef = useRef();
   const { isLight } = useTheme();
   const [skySettings, setSkySettings] = useState(THEME_SETTINGS.light);
-  
+
   const { perfVisible } = useControls({
     perfVisible: { value: false, label: "Show Performance" },
     Sky: folder(
@@ -51,7 +51,7 @@ export default function Experience() {
 
   useGSAP(() => {
     const targetSettings = isLight ? THEME_SETTINGS.light : THEME_SETTINGS.dark;
-    
+
     gsap.to(skySettings, {
       duration: 1,
       ease: "power2.inOut",
@@ -61,7 +61,7 @@ export default function Experience() {
       mieDirectionalG: targetSettings.mieDirectionalG,
       rayleigh: targetSettings.rayleigh,
       turbidity: targetSettings.turbidity,
-      onUpdate: () => setSkySettings({...skySettings}),
+      onUpdate: () => setSkySettings({ ...skySettings }),
     });
   }, [isLight]);
 
@@ -70,11 +70,7 @@ export default function Experience() {
       {perfVisible && <Perf position="top-left" />}
       <Lights isLight={isLight} />
       <Camera />
-      <Sky
-        ref={skyRef}
-        {...skySettings}
-        distance={1000}
-      />
+      <Sky ref={skyRef} {...skySettings} distance={1000} />
       <Apartment />
     </>
   );

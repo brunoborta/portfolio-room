@@ -67,21 +67,37 @@ function Lights({ isLight }) {
   useControls({
     "Directional Light": folder(
       {
-        visible: {
+        visibleDirectional: {
           value: true,
           onChange: (v) => {
             directionalRef.current.visible = v;
           },
         },
-        position: {
-          x: -13.1,
-          y: -0.2,
-          z: 4.7,
+        positionDirectionalX: {
+          value: -13.1,
+          min: -20,
+          max: 20,
           onChange: (v) => {
-            directionalRef.current.position.copy(v);
+            directionalRef.current.position.x = v;
           },
         },
-        intensity: {
+        positionDirectionalY: {
+          value: -0.2,
+          min: -20,
+          max: 20,
+          onChange: (v) => {
+            directionalRef.current.position.y = v;
+          },
+        },
+        positionDirectionalZ: {
+          value: 4.7,
+          min: -20,
+          max: 20,
+          onChange: (v) => {
+            directionalRef.current.position.z = v;
+          },
+        },
+        intensityDirectional: {
           value: 1,
           min: 0,
           max: 10,
@@ -89,13 +105,13 @@ function Lights({ isLight }) {
             directionalRef.current.intensity = v;
           },
         },
-        castShadow: {
+        castShadowDirectional: {
           value: true,
           onChange: (v) => {
             directionalRef.current.castShadow = v;
           },
         },
-        color: {
+        colorDirectional: {
           value: "rgb(93, 113, 191)",
         },
       },

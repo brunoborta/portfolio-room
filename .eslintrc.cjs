@@ -41,7 +41,16 @@ module.exports = {
           "transparent",
           "position-x",
           "position-y",
-          "position-z"
+          "position-z",
+          "visible",
+          "distance",
+          "decay",
+          "angle",
+          "penumbra",
+          "color",
+          "shadow-mapSize-width",
+          "shadow-mapSize-height",
+          "target-position"
         ],
       },
     ],
