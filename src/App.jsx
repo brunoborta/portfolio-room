@@ -11,12 +11,22 @@ import { useMouseRotation } from "./hooks/useMouseRotation";
 import GlobalStyle from "./globalStyles";
 import { Scroll, ScrollControls } from "@react-three/drei";
 
-// import Intro from "./components/UI/Intro";
+import Intro from "./components/UI/Intro";
 import ToggleMode from "./components/UI/ToggleMode";
+import LoadingScreen from "./components/UI/LoadingScreen";
+import { useIntro } from "./hooks/useIntro";
 
 function App() {
   const [hideDebug, setHideDebug] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const { handlePointerMove } = useMouseRotation();
+  const { setLoadingCompleted } = useIntro();
+
+  const handleLoadComplete = () => {
+    setIsLoading(false);
+    setLoadingCompleted(true);
+  };
+
   useEffect(() => {
     const debug = window.location.hash;
     if (debug === "#debug") {
@@ -28,10 +38,10 @@ function App() {
     <>
       <GlobalStyle />
       <ToggleMode />
+      <Intro />
       <Navigation />
       <Leva hidden={hideDebug} />
       <AudioPlayer />
-      {/* <Intro />  */}
       <Canvas
         camera={{
           fov: 45,
@@ -52,6 +62,7 @@ function App() {
           </ScrollControls>
         </Suspense>
       </Canvas>
+      {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
     </>
   );
 }
