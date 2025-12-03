@@ -9,7 +9,7 @@ export const Container = styled.nav`
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
-  z-index: 1000;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   padding: 1rem 2rem;
