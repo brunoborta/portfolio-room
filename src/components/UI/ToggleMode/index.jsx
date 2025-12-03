@@ -2,10 +2,37 @@ import { useRef } from "react";
 import { Container, Toggle, ToggleBall, Icon } from "./styles";
 import gsap from "gsap";
 import { useTheme } from "../../../hooks/useTheme";
+import { useGSAP } from "@gsap/react";
+import { useIntro } from "../../../hooks/useIntro";
 
 function ToggleMode() {
   const toggleRef = useRef(null);
+  const containerRef = useRef(null);
   const { isLight, setIsLight, getActualTheme } = useTheme();
+  const { introCompleted } = useIntro();
+
+  // Animação de entrada após a intro terminar
+  useGSAP(
+    () => {
+      if (introCompleted && containerRef.current) {
+        gsap.fromTo(
+          containerRef.current,
+          {
+            y: -100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            delay: 0, // Aparece primeiro (sem delay)
+          }
+        );
+      }
+    },
+    { dependencies: [introCompleted] }
+  );
 
   const handleClick = () => {
     gsap.to(toggleRef.current, {
@@ -15,7 +42,7 @@ function ToggleMode() {
     setIsLight(!isLight);
   };
   return (
-    <Container>
+    <Container ref={containerRef} style={{ opacity: 0 }}>
       <Icon
         theme={getActualTheme()}
         xmlns="http://www.w3.org/2000/svg"

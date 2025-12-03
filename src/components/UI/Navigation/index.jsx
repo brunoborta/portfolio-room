@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, NavigationDot } from "./styles";
 import { useTheme } from "../../../hooks/useTheme";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useIntro } from "../../../hooks/useIntro";
 
 // Mapeamento das seções para as 9 páginas do ScrollControls
 const sections = [
@@ -15,6 +18,31 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const { getActualTheme } = useTheme();
   const theme = getActualTheme();
+  const containerRef = useRef();
+  const { introCompleted } = useIntro();
+
+  // Animação de entrada após a intro terminar
+  useGSAP(
+    () => {
+      if (introCompleted && containerRef.current) {
+        gsap.fromTo(
+          containerRef.current,
+          {
+            y: -100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            delay: 0.3, // Delay para aparecer depois do ToggleMode (staggered)
+          }
+        );
+      }
+    },
+    { dependencies: [introCompleted] }
+  );
 
   useEffect(() => {
     // Listener para atualizações do scroll offset do drei
@@ -84,7 +112,7 @@ const Navigation = () => {
   };
 
   return (
-    <Container theme={theme}>
+    <Container ref={containerRef} theme={theme} style={{ opacity: 0 }}>
       {sections.map((section) => (
         <NavigationDot
           key={section.id}
